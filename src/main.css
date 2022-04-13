@@ -34,6 +34,7 @@ body {
   border-radius: 5px;
   margin: auto;
   margin-bottom: 8px;
+  box-shadow: 0 0 6px 0 rgba(10, 10, 10, 0.65);
 }
 .button-box .button-row {
   padding: 8px;
@@ -73,7 +74,7 @@ body {
   transform: translateX(-100%);
 }
 .button-box .button-row .toggle-button:checked + .toggle-label {
-  background-color: #2196F3;
+  background-color: #7be382;
 }
 .button-box .button-row .toggle-label:active .toggle-switch {
   width: 42px;
@@ -105,7 +106,5 @@ body {
   color: rgba(10, 10, 10, 0.45);
   cursor: pointer;
 }
-
-/* Second Attempt */
 
 /*# sourceMappingURL=main.css.map */

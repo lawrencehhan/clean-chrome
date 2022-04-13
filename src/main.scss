@@ -1,7 +1,8 @@
 $read-font: 0.875rem; // 0.875rem = 14px
 $sub-font: 0.75rem;
 $toggle-off-color: #ccc;
-$toggle-on-color: #2196F3; 
+$toggle-on-color: #2196F3;
+$toggle-on-color: #7be382;
 $switch-color: #fff;
 $toggle-animation-speed: 0.4s;
 $toggle-height: 24px;
@@ -45,6 +46,7 @@ body {
     border-radius: 5px;
     margin: auto;
     margin-bottom: 8px;
+    box-shadow: 0 0 6px 0 rgba(10, 10, 10, 0.65);
     .button-row{
         padding: 8px;
         display: flex;
@@ -117,21 +119,3 @@ body {
         cursor: pointer;
     }
 }
-
-/* Second Attempt */
-
-
-
-
-
-
-
-// .Black-box {
-//     background-color: black;
-// }
-// .Transparent{
-//     color: white;
-// }
-// .Strike {
-//     text-decoration: line-through;
-// }

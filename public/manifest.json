@@ -16,5 +16,8 @@
     },
     "background": {
         "service_worker": "./CleanChrome.js"
-    }
+    },
+    "permissions": [
+        "activeTab"
+    ]
 }
