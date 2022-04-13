@@ -1,103 +1,111 @@
 body {
-    margin: 0;
-    font-family: 'Nunito', sans-serif;
-    width: 320px;
-    max-height: 480px;
+  margin: 0;
+  font-family: "Nunito", sans-serif;
+  width: 320px;
+  max-height: 504px;
+  border: 1px solid black;
 }
 
 .intro {
-    font-size: 0.875rem; /* 14px */
-    padding: 8px;
+  padding: 0 16px 0 16px;
+  margin-top: 16px;
+  margin-bottom: 8px;
+  font-size: 0.875rem;
+  display: inline-block;
+  text-align: center;
 }
-.intro-title {
-    font-size: 1rem;
-    color:bisque;
-    display: flex;
-    justify-content: center;
-    margin-bottom: 0;
-    margin-top: 16px;
+.intro .intro-title {
+  margin: 0;
+  margin-bottom: 8px;
+  font-size: 1rem;
+  color: bisque;
 }
-.intro-instruct {
-    display: flex;
-    justify-content: center;
-    align-content: center;
+.intro .intro-para, .intro .intro-instruct {
+  margin: 0;
+  padding: 4px;
+}
+.intro .intro-para {
+  text-align: left;
 }
 
 .button-box {
-    width: 280px;
-    border: 2px solid black;
-    border-radius: 5px;
-    margin: auto;
-    margin-bottom: 8px;
+  width: 236px;
+  border: 1px solid black;
+  border-radius: 5px;
+  margin: auto;
+  margin-bottom: 8px;
 }
-.button-row{
-    padding: 8px;
-    display: inline-flex;
+.button-box .button-row {
+  padding: 8px;
+  display: flex;
+  margin: 0 4px 0 4px;
 }
-.toggle-button{
-    position: relative;
-    display: inline-block;
-    width: 60px;
-    height: 34px;
+.button-box .button-row .toggle-button {
+  height: 0;
+  width: 0;
+  visibility: hidden;
 }
-.toggle-button input {
-    opacity: 0;
-    width: 0;
-    height: 0;
+.button-box .button-row .toggle-label {
+  width: 42px;
+  height: 24px;
+  border-radius: 100px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  position: relative;
+  cursor: pointer;
+  background: #ccc;
+  transition: background-color 0.4s;
 }
-.toggle-slider {
-    position: absolute;
-    cursor: pointer;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    background-color: #ccc;
-    -webkit-transition: .4s;
-    transition: .4s;
-    border-radius: 34px;
+.button-box .button-row .toggle-label .toggle-switch {
+  height: calc(0.75 * 24px);
+  width: calc(0.75 * 24px);
+  left: 4px;
+  bottom: 4px;
+  border-radius: 36px;
+  box-shadow: 0 0 8px 0 rgba(10, 10, 10, 0.45);
+  position: absolute;
+  transition: 0.4s;
+  background: #fff;
 }
-.toggle-slider::before {
-    position: absolute;
-    content: "";
-    height: 26px;
-    width: 26px;
-    left: 4px;
-    bottom: 4px;
-    background-color: white;
-    -webkit-transition: .4s;
-    transition: .4s;
-    border-radius: 50%;
+.button-box .button-row .toggle-button:checked + .toggle-label .toggle-switch {
+  left: calc(100% - 4px);
+  transform: translateX(-100%);
 }
-input:checked + .toggle-slider {
-    background-color: #2196F3;
+.button-box .button-row .toggle-button:checked + .toggle-label {
+  background-color: #2196F3;
 }
-  
-input:focus + .toggle-slider {
-    box-shadow: 0 0 1px #2196F3;
+.button-box .button-row .toggle-label:active .toggle-switch {
+  width: 42px;
 }
-.button-text {
-    font-size: 1rem;
-    margin-left: 8px;
+.button-box .button-row .toggle-description {
+  font-size: 0.875rem;
+  margin-left: 8px;
+  display: inline-flex;
+  align-items: center;
 }
-.Black-box {
-    background-color: black;
-}
-.Transparent{
-    color: white;
-}
-.Strike {
-    text-decoration: line-through;
+.button-box .button-row .toggle-description .censor-example {
+  font-size: 0.75rem;
+  margin-left: 4px;
 }
 
 .footer {
-    display: flex;
-    justify-content: center;
-    font-size: 0.75rem;
-    opacity: 0.5;
+  display: flex;
+  justify-content: center;
+  font-size: 0.75rem;
+  opacity: 0.65;
 }
-.github-logo {
-    max-width: 16px;
-    height: auto;
-    margin-right: 4px;
+.footer .github-logo {
+  max-width: 16px;
+  height: auto;
+  margin-right: 4px;
 }
+.footer .github-link {
+  text-decoration: none !important;
+  color: rgba(10, 10, 10, 0.45);
+  cursor: pointer;
+}
+
+/* Second Attempt */
+
+/*# sourceMappingURL=main.css.map */

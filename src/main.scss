@@ -1,0 +1,137 @@
+$read-font: 0.875rem; // 0.875rem = 14px
+$sub-font: 0.75rem;
+$toggle-off-color: #ccc;
+$toggle-on-color: #2196F3; 
+$switch-color: #fff;
+$toggle-animation-speed: 0.4s;
+$toggle-height: 24px;
+$toggle-width: 42px;
+$switch-offset: 4px;
+
+
+body {
+    margin: 0;
+    font-family: 'Nunito', sans-serif;
+    width: 320px;
+    max-height: 504px;
+    border: 1px solid black;
+}
+
+.intro {
+    padding: 0 16px 0 16px;
+    margin-top: 16px;
+    margin-bottom: 8px;
+    font-size: $read-font;
+    display: inline-block;
+    text-align: center;
+    .intro-title {
+        margin: 0;
+        margin-bottom: 8px;
+        font-size: 1rem;
+        color:bisque;
+    }
+    .intro-para, .intro-instruct {
+        margin: 0;
+        padding: 4px;
+    }
+    .intro-para{
+        text-align: left;
+    }
+}
+
+.button-box {
+    width: 236px;
+    border: 1px solid black;
+    border-radius: 5px;
+    margin: auto;
+    margin-bottom: 8px;
+    .button-row{
+        padding: 8px;
+        display: flex;
+        margin: 0 4px 0 4px;
+        .toggle-button {
+            height: 0;
+            width: 0;
+            visibility: hidden;
+        }
+        .toggle-label {
+            width: $toggle-width;
+            height: $toggle-height;
+            border-radius: 100px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            position: relative;
+            cursor: pointer;
+            background: $toggle-off-color;
+            transition: background-color $toggle-animation-speed;
+            .toggle-switch {
+                height: calc(0.75 * #{$toggle-height});
+                width: calc(0.75 * #{$toggle-height});
+                left: $switch-offset;
+                bottom: $switch-offset;
+                border-radius: 36px;
+                box-shadow: 0 0 8px 0 rgba(10, 10, 10, 0.45);
+                position: absolute;
+                transition: $toggle-animation-speed;
+                background: $switch-color;
+            }
+        }
+        // Changes applied to toggle-button/toggle-switch
+        .toggle-button:checked + .toggle-label .toggle-switch {
+            left: calc(100% - #{$switch-offset}); // Check .toggle-switch left val
+            transform: translateX(-100%);
+        }
+        .toggle-button:checked + .toggle-label {
+            background-color: $toggle-on-color;
+        }
+        .toggle-label:active .toggle-switch {
+            width: $toggle-width;
+        }
+        .toggle-description {
+            font-size: $read-font;
+            margin-left: 8px;
+            display: inline-flex;
+            align-items: center;
+            .censor-example{
+                font-size: $sub-font;
+                margin-left: 4px;
+            }
+        }
+    }
+}
+
+.footer {
+    display: flex;
+    justify-content: center;
+    font-size: $sub-font;
+    opacity: 0.65;
+    .github-logo {
+        max-width: 16px;
+        height: auto;
+        margin-right: 4px;
+    }
+    .github-link{
+        text-decoration: none !important;
+        color: rgba(10, 10, 10, 0.45);
+        cursor: pointer;
+    }
+}
+
+/* Second Attempt */
+
+
+
+
+
+
+
+// .Black-box {
+//     background-color: black;
+// }
+// .Transparent{
+//     color: white;
+// }
+// .Strike {
+//     text-decoration: line-through;
+// }
