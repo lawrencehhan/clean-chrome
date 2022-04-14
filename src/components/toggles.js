@@ -1,4 +1,4 @@
-export default [
+const toggleData = [
     {
         keyID: 1,
         id: "Black-Box",
@@ -16,3 +16,5 @@ export default [
         id: "Strike",
     }
 ]
+
+export default toggleData

@@ -7,7 +7,7 @@ export default function App() {
     return (
         <>
           <Description />  
-          <Main />
+          <Main /> 
           <Footer />
         </>
     )
