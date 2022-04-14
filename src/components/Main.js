@@ -2,6 +2,7 @@
 import React, { useState } from 'react'
 import ToggleButton from './ToggleButton'
 import toggleData from './toggles'
+import wordsData from './wiktionaryWords'
 
 
 export default function Main() {
@@ -24,7 +25,6 @@ export default function Main() {
 
         chrome.tabs && chrome.tabs.query(queryCriteria, tabs => {
             const currentTabId = tabs[0].id
-            console.log("URL" + tabs[0].url)
             chrome.tabs.sendMessage(
                 currentTabId,
                 message,
@@ -33,7 +33,27 @@ export default function Main() {
                 })
         })
     }
-    
+    const sendWordsData = (data) => {
+        const message = {
+            from: "React",
+            message: data,
+        }
+        const queryCriteria = {
+            active: true,
+            currentWindow: true
+        }
+
+        chrome.tabs && chrome.tabs.query(queryCriteria, tabs => {
+            const currentTabId = tabs[0].id
+            chrome.tabs.sendMessage(
+                currentTabId,
+                message,
+                (response) => {
+                    setResponseFromContent(response);
+                })
+        })
+    }
+    sendWordsData(wordsData)
     
     /** Updating states active in Main.js */
     function handleChange(event) {

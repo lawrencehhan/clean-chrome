@@ -1,11 +1,10 @@
 /*global chrome*/
-import wordsData from '../src/components/wiktionaryWords'
 
 // Placeholder for reseting DOM when no toggle is selected
 let oldDocumentBody = document.querySelector('body').cloneNode(true);
 // const censorWordsRegex = /(bio)|(tech)/gi;
-const censorWords = wordsData.map(word => `(${word})`);
-const censorWordsRegex = new RegExp(censorWords.join("|"), "gi");
+let censorWords;
+let censorWordsRegex;
 
 const censorText = (element, censorApp) => {
     if (element.hasChildNodes()) {
@@ -59,7 +58,7 @@ const censorApplications = {
 
 
 const messagesFromReactAppListener = (message, sender, response) => {
-    console.log('[content.js]. Message received', {message, sender})
+    console.log('[content.js]. Message received')
 
     if (
         sender.id === chrome.runtime.id &&
@@ -104,6 +103,15 @@ const messagesFromReactAppListener = (message, sender, response) => {
             const censorApp = censorApplications[message.message];
             censorText(document.body, censorApp);
             response("Strike censor has been applied.");
+        }
+
+    if (
+        sender.id === chrome.runtime.id &&
+        message.from === "React") {
+            const wordsData = message.message;
+            censorWords = wordsData.map(word => `(${word})`);
+            censorWordsRegex = new RegExp(censorWords.join("|"), "gi");
+            response("Word data has been received.");
         }
 }
 
