@@ -1,34 +1,58 @@
-$read-font: 0.875rem; // 0.875rem = 14px
-$sub-font: 0.75rem;
-$toggle-off-color: #ccc;
-$toggle-on-color: #2196F3; 
-$switch-color: #fff;
+$title-font: 1rem;
+$read-font: calc(#{$title-font} - 0.125rem); // 0.875rem = 14px
+$sub-font: calc(#{$title-font} - 0.375rem);
+$main-color: #4c956c;
+$sub-color: #fefee3;
+$text-color: #242325;
+$toggle-off-color: #cbbaede7;
+$toggle-on-color: #42CAFD;
+$switch-color: white;
 $toggle-animation-speed: 0.4s;
 $toggle-height: 24px;
 $toggle-width: 42px;
 $switch-offset: 4px;
+// Older color options
+// $toggle-off-color: #ccc;
+// $toggle-on-color: #7be382;
+// $toggle-on-color: #43b1f1;
+// $toggle-on-color: #54C6EB;
 
 
 body {
     margin: 0;
     font-family: 'Nunito', sans-serif;
-    width: 320px;
+    width: 308px;
     max-height: 504px;
-    border: 1px solid black;
+    color: $text-color;
+    background-color: $sub-color;
+}
+
+.title-row{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 6px 2% 8px 2%;
+    width: 96%;
+    height: 40px;
+    font-size: $title-font;
+    background-color: $main-color;
+    box-shadow: 0 3px 5px rgba(10, 10, 10, 0.4); 
+    border-radius: 8px;
+    .title-text{
+        margin: 0;
+        font-size: 1rem;
+        color: $sub-color;
+    }
 }
 
 .intro {
     padding: 0 16px 0 16px;
-    margin-top: 16px;
-    margin-bottom: 8px;
+    margin-bottom: 9px;
     font-size: $read-font;
     display: inline-block;
     text-align: center;
-    .intro-title {
-        margin: 0;
-        margin-bottom: 8px;
-        font-size: 1rem;
-        color:bisque;
+    .intro-title{
+        color: $main-color;
     }
     .intro-para, .intro-instruct {
         margin: 0;
@@ -41,10 +65,12 @@ body {
 
 .button-box {
     width: 236px;
-    border: 1px solid black;
     border-radius: 5px;
     margin: auto;
-    margin-bottom: 8px;
+    margin-bottom: 9px;
+    background-color: $main-color;
+    color: $sub-color;
+    box-shadow: 0 0 6px 0 rgba(10, 10, 10, 0.65);
     .button-row{
         padding: 8px;
         display: flex;
@@ -79,7 +105,7 @@ body {
         }
         // Changes applied to toggle-button/toggle-switch
         .toggle-button:checked + .toggle-label .toggle-switch {
-            left: calc(100% - #{$switch-offset}); // Check .toggle-switch left val
+            left: calc(100% - #{$switch-offset});
             transform: translateX(-100%);
         }
         .toggle-button:checked + .toggle-label {
@@ -117,21 +143,3 @@ body {
         cursor: pointer;
     }
 }
-
-/* Second Attempt */
-
-
-
-
-
-
-
-// .Black-box {
-//     background-color: black;
-// }
-// .Transparent{
-//     color: white;
-// }
-// .Strike {
-//     text-decoration: line-through;
-// }
