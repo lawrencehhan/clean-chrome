@@ -16,5 +16,4 @@ const toggleData = [
         id: "Strike",
     }
 ]
-
 export default toggleData

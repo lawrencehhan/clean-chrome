@@ -30,5 +30,4 @@ const wordsData = [
     "slut",
     "whore"
 ];
-
 export default wordsData;

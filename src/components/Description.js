@@ -3,9 +3,10 @@ import React from "react"
 export default function Description() {
     return (
         <div className="intro">
-            <h6 className="intro-title">Clean Chrome</h6>
-            <p className="intro-para">Clean-Chrome filters through your current webpage and censors expletives according to how you would prefer!</p>
-            <p className="intro-instruct">Set your preferences to customize how your webpage will be filtered</p>
+            <p className="intro-para"><i className="intro-title">Clean Chrome </i> 
+                scans your webpage for expletives, and presents you with the option of hiding them from view &#129395;
+            </p>
+            <p className="intro-instruct">Select an option below to start cleaning</p>
         </div>
     )
 }

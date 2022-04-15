@@ -2,7 +2,6 @@
 
 // Placeholder for reseting DOM when no toggle is selected
 let oldDocumentBody = document.querySelector('body').cloneNode(true);
-// const censorWordsRegex = /(bio)|(tech)/gi;
 let censorWords;
 let censorWordsRegex;
 
@@ -15,7 +14,6 @@ const censorText = (element, censorApp) => {
       }
     }
 };
-
 
 const censorWithBlackBox = (element) => {
     const newElement = document.createElement('span');
@@ -55,7 +53,6 @@ const censorApplications = {
     "Transparent": censorWithTransparent,
     "Strike": censorWithStrike
 };
-
 
 const messagesFromReactAppListener = (message, sender, response) => {
     console.log('[content.js]. Message received')

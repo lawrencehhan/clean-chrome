@@ -1,24 +1,39 @@
 body {
   margin: 0;
   font-family: "Nunito", sans-serif;
-  width: 320px;
+  width: 308px;
   max-height: 504px;
-  border: 1px solid black;
+  color: #242325;
+  background-color: #fefee3;
+}
+
+.title-row {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 6px 2% 8px 2%;
+  width: 96%;
+  height: 40px;
+  font-size: 1rem;
+  background-color: #4c956c;
+  box-shadow: 0 3px 5px rgba(10, 10, 10, 0.4);
+  border-radius: 8px;
+}
+.title-row .title-text {
+  margin: 0;
+  font-size: 1rem;
+  color: #fefee3;
 }
 
 .intro {
   padding: 0 16px 0 16px;
-  margin-top: 16px;
-  margin-bottom: 8px;
-  font-size: 0.875rem;
+  margin-bottom: 9px;
+  font-size: calc(1rem - 0.125rem);
   display: inline-block;
   text-align: center;
 }
 .intro .intro-title {
-  margin: 0;
-  margin-bottom: 8px;
-  font-size: 1rem;
-  color: bisque;
+  color: #4c956c;
 }
 .intro .intro-para, .intro .intro-instruct {
   margin: 0;
@@ -30,10 +45,11 @@ body {
 
 .button-box {
   width: 236px;
-  border: 1px solid black;
   border-radius: 5px;
   margin: auto;
-  margin-bottom: 8px;
+  margin-bottom: 9px;
+  background-color: #4c956c;
+  color: #fefee3;
   box-shadow: 0 0 6px 0 rgba(10, 10, 10, 0.65);
 }
 .button-box .button-row {
@@ -55,7 +71,7 @@ body {
   justify-content: space-between;
   position: relative;
   cursor: pointer;
-  background: #ccc;
+  background: #cbbaede7;
   transition: background-color 0.4s;
 }
 .button-box .button-row .toggle-label .toggle-switch {
@@ -67,33 +83,33 @@ body {
   box-shadow: 0 0 8px 0 rgba(10, 10, 10, 0.45);
   position: absolute;
   transition: 0.4s;
-  background: #fff;
+  background: white;
 }
 .button-box .button-row .toggle-button:checked + .toggle-label .toggle-switch {
   left: calc(100% - 4px);
   transform: translateX(-100%);
 }
 .button-box .button-row .toggle-button:checked + .toggle-label {
-  background-color: #7be382;
+  background-color: #42CAFD;
 }
 .button-box .button-row .toggle-label:active .toggle-switch {
   width: 42px;
 }
 .button-box .button-row .toggle-description {
-  font-size: 0.875rem;
+  font-size: calc(1rem - 0.125rem);
   margin-left: 8px;
   display: inline-flex;
   align-items: center;
 }
 .button-box .button-row .toggle-description .censor-example {
-  font-size: 0.75rem;
+  font-size: calc(1rem - 0.375rem);
   margin-left: 4px;
 }
 
 .footer {
   display: flex;
   justify-content: center;
-  font-size: 0.75rem;
+  font-size: calc(1rem - 0.375rem);
   opacity: 0.65;
 }
 .footer .github-logo {
