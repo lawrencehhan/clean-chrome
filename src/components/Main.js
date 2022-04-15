@@ -63,8 +63,14 @@ export default function Main() {
         // setCensorType(prevCensorType => (
         //     event.target.value === prevCensorType ? "" : event.target.value
         // ))
-        setCensorType(newCensorType)
-        sendCensorMessage(newCensorType)
+        if (newCensorType === "") {
+            setCensorType(newCensorType)
+            sendCensorMessage(newCensorType)
+        } else {
+            sendCensorMessage("")
+            setCensorType(newCensorType)
+            sendCensorMessage(newCensorType)
+        }
     }
 
     // Initializing the toggle elements

@@ -26,7 +26,7 @@ const wordsData = [
     "piss",
     "prick",
     "shit",
-    "sisterfu,cker",
+    "sisterfucker",
     "slut",
     "whore"
 ];

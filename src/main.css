@@ -1,10 +1,10 @@
 body {
   margin: 0;
-  font-family: "Nunito", sans-serif;
+  font-family: "Open Sans", sans-serif;
   width: 308px;
   max-height: 504px;
   color: #242325;
-  background-color: #fefee3;
+  background-color: #E7E5E5;
 }
 
 .title-row {
@@ -15,14 +15,14 @@ body {
   width: 96%;
   height: 40px;
   font-size: 1rem;
-  background-color: #4c956c;
+  background-color: #383C58;
   box-shadow: 0 3px 5px rgba(10, 10, 10, 0.4);
   border-radius: 8px;
 }
 .title-row .title-text {
   margin: 0;
   font-size: 1rem;
-  color: #fefee3;
+  color: #E7E5E5;
 }
 
 .intro {
@@ -33,23 +33,19 @@ body {
   text-align: center;
 }
 .intro .intro-title {
-  color: #4c956c;
+  color: #383C58;
 }
 .intro .intro-para, .intro .intro-instruct {
   margin: 0;
   padding: 4px;
 }
-.intro .intro-para {
-  text-align: left;
-}
-
 .button-box {
   width: 236px;
   border-radius: 5px;
   margin: auto;
   margin-bottom: 9px;
-  background-color: #4c956c;
-  color: #fefee3;
+  background-color: #383C58;
+  color: #E7E5E5;
   box-shadow: 0 0 6px 0 rgba(10, 10, 10, 0.65);
 }
 .button-box .button-row {
@@ -71,7 +67,7 @@ body {
   justify-content: space-between;
   position: relative;
   cursor: pointer;
-  background: #cbbaede7;
+  background: #E7E5E5;
   transition: background-color 0.4s;
 }
 .button-box .button-row .toggle-label .toggle-switch {
@@ -90,7 +86,7 @@ body {
   transform: translateX(-100%);
 }
 .button-box .button-row .toggle-button:checked + .toggle-label {
-  background-color: #42CAFD;
+  background-color: #8FDAD6;
 }
 .button-box .button-row .toggle-label:active .toggle-switch {
   width: 42px;

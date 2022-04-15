@@ -55,8 +55,8 @@ const censorApplications = {
 };
 
 const messagesFromReactAppListener = (message, sender, response) => {
-    console.log('[content.js]. Message received')
-
+    console.log('[content.js]. Message received');
+    
     if (
         sender.id === chrome.runtime.id &&
         message.from === "React" &&
@@ -110,7 +110,7 @@ const messagesFromReactAppListener = (message, sender, response) => {
             censorWordsRegex = new RegExp(censorWords.join("|"), "gi");
             response("Word data has been received.");
         }
-}
+};
 
 // Fires when either the React Main.js or content.js sends a message
 chrome.runtime.onMessage.addListener(messagesFromReactAppListener);
