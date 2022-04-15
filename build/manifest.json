@@ -1,7 +1,7 @@
 {
     "name": "Clean Chrome",
-    "description": "Choose to filter out certain expletives on your page",
-    "version": "1.0",
+    "description": "Allows users to hide expletives found on active webpages.",
+    "version": "0.0.1",
     "manifest_version": 3,
     "author": "Lawrence Han",
 
