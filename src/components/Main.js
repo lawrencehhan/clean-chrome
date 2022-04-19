@@ -7,10 +7,13 @@ import wordsData from './wiktionaryWords'
 
 export default function Main() {
     // States are kept for active censorType and content.js responseFromContent
-    const [censorType, setCensorType] = useState("")
-    console.log("Active censor type: " + censorType)
+    const [censorType, setCensorType] = useState(chrome.storage.sync.get('storedCensorType', 
+        (storage) => {
+            return storage.storedCensorType
+        })
+    )
     const [responseFromContent, setResponseFromContent] = useState("")
-    console.log("Response: " + responseFromContent)
+
     // Message passing to content.js for any updates on active censorType
     const sendCensorMessage = (censorMessage) => {
         // Initializing message and conditions
@@ -18,18 +21,19 @@ export default function Main() {
             from: "React",
             message: censorMessage,
         }
-        const queryCriteria = {
+        const queryInfo = {
             active: true,
             currentWindow: true
         }
         // Sending message to content.js
-        chrome.tabs && chrome.tabs.query(queryCriteria, tabs => {
+        chrome.tabs && chrome.tabs.query(queryInfo, tabs => {
             const currentTabId = tabs[0].id
             chrome.tabs.sendMessage(
                 currentTabId,
                 message,
                 (response) => {
-                    setResponseFromContent(response);
+                    setResponseFromContent(response)
+                    console.log('content.js response: ' + response)
                 })
         })
     }
@@ -40,12 +44,12 @@ export default function Main() {
             from: "React",
             message: data,
         }
-        const queryCriteria = {
+        const queryInfo = {
             active: true,
             currentWindow: true
         }
 
-        chrome.tabs && chrome.tabs.query(queryCriteria, tabs => {
+        chrome.tabs && chrome.tabs.query(queryInfo, tabs => {
             const currentTabId = tabs[0].id
             chrome.tabs.sendMessage(
                 currentTabId,
@@ -56,21 +60,35 @@ export default function Main() {
         })
     }
     sendWordsData(wordsData)
+
+    // chrome.storage.sync.get('storedCensorType', () => {
+    //     chrome.storage.sync.set({
+    //         storedCensorType: censorType,})
+    //     console.log('SET STORED MESSAGE/CENSOR AS ' + censorType)
+    // })
+    
     
     // Updating states active in Main.js whenever a toggle is clicked
     function handleChange(event) {
         const newCensorType = event.target.value === censorType ? "" : event.target.value
-        // setCensorType(prevCensorType => (
-        //     event.target.value === prevCensorType ? "" : event.target.value
-        // ))
-        if (newCensorType === "") {
-            setCensorType(newCensorType)
-            sendCensorMessage(newCensorType)
-        } else {
-            sendCensorMessage("")
-            setCensorType(newCensorType)
-            sendCensorMessage(newCensorType)
-        }
+        chrome.storage.sync.get('storedCensorType', () => {
+            chrome.storage.sync.set({
+                storedCensorType: newCensorType,})
+            console.log('-- set storage to button click: ' + newCensorType)
+        })
+        
+        chrome.storage.sync.get('storedCensorType', (storage) => {
+            setCensorType(storage.storedCensorType)
+        })
+        // if (newCensorType === "") {
+        //     setCensorType(newCensorType)
+        //     sendCensorMessage(newCensorType)
+        // } else {
+        //     sendCensorMessage("")
+        //     setCensorType(newCensorType)
+        //     sendCensorMessage(newCensorType)
+        // }
+        console.log('Current active censorType: ' + newCensorType)
     }
 
     // Initializing the toggle elements

@@ -1,9 +1,15 @@
 /*global chrome*/
 
 // Placeholder for reseting DOM when no toggle is selected
-let oldDocumentBody = document.querySelector('body').cloneNode(true);
+// let oldDocumentBody = document.querySelector('body').cloneNode(true);
 let censorWords;
 let censorWordsRegex;
+
+chrome.storage.sync.get('storedCensorType', () => {
+    chrome.storage.sync.set({
+        storedCensorType: "",})
+    console.log('set storage to nothing from within content.js')
+})
 
 const censorText = (element, censorApp) => {
     if (element.hasChildNodes()) {
@@ -54,9 +60,10 @@ const censorApplications = {
     "Strike": censorWithStrike
 };
 
+
 const messagesFromReactAppListener = (message, sender, response) => {
     console.log('[content.js]. Message received');
-    
+
     if (
         sender.id === chrome.runtime.id &&
         message.from === "React" &&
@@ -113,4 +120,13 @@ const messagesFromReactAppListener = (message, sender, response) => {
 };
 
 // Fires when either the React Main.js or content.js sends a message
+// onMessage event is fired when a messag eis sent from either an extension (chrome.runtime.sendMessage)
+// or a content script (chrome.tabs.sendMessage)
 chrome.runtime.onMessage.addListener(messagesFromReactAppListener);
+// chrome.storage.onChanged.addListener(changes, areaName)
+chrome.storage.onChanged.addListener((changes, area) => {
+    if (area === 'sync' && changes.storedCensorType?.newValue) {
+        console.log('-- Inside storage listener --')
+        console.log('Changes: ' + changes.storedCensorType.newValue)
+    }
+})
